@@ -41,6 +41,7 @@ module.exports = {
   },
   configureWebpack: {
     resolve: {
+      // 路径别名
       alias: {
         '@': resolve('src'),
         '@views': resolve('src/views'),
