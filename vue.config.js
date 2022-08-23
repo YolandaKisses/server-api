@@ -23,6 +23,10 @@ module.exports = {
     https: false,
     // 开发运行时域名，设置成'0.0.0.0',在同一个局域网下，如果你的项目在运行，同时可以通过你的 http://ip:port/...访问你的项目
     host: '0.0.0.0',
+    // 跨域
+    headers: {
+      "Access-Control-Allow-Origin": "*",
+    },
     // 反向代理
     proxy: {
       [`${process.env.VUE_APP_BASE_API}`]: {
@@ -30,8 +34,6 @@ module.exports = {
         target: process.env.VUE_APP_SERVER_API,
         //是否跨域
         changeOrigin: true,
-         //如果要代理 websockets，配置这个参数
-        ws: true,
         // 路径重写
         pathRewrite: {
           [`^${process.env.VUE_APP_BASE_API}`]: "",
